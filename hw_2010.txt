@@ -1,0 +1,17 @@
+!#/bin/bash
+D=$(date +"%T")
+T=$(ps -ef | wc -l)
+for run in {1..10}
+do
+echo "$D" "$T"
+#sleep 5
+sleep 1
+done
+cat /etc/os-release | head -1 > /opt/37_38_MA/Skiba/hw4.txt
+cat /opt/37_38_MA/Skiba/hw4.txt | grep -w Amazon | sed 's/"/ /g' | awk '{print$2}' >> /opt/37_38_MA/Skiba/hw4.txt
+cat /opt/37_38_MA/Skiba/hw4.txt
+
+for run in {50..100}
+do
+touch /home/$run.txt
+done
